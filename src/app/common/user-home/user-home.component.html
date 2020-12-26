@@ -1,0 +1,58 @@
+<div class="row">
+    
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+      <div class="navbar-header">
+          <a routerLink="/" class="navbar-brand">MovieBooking</a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-nav">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+      </div>
+      <div class="collapse navbar-collapse" id="my-nav">
+          <ul class="nav navbar-nav">
+              <li>
+                  <a>Movies</a>
+              </li>
+              <li>
+                  <a>Theatre</a>
+              </li>
+              <li>
+                  <a>Bookings</a>
+              </li>
+
+
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown">
+                <a><span class="glyphicon glyphicon-user"></span> {{loggedInUser.username}}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a><span class="glyphicon glyphicon-user"></span> My Details</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a [routerLink]="" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+      </div>
+
+  </div>
+  </nav>
+
+</div>
+<h1>Search</h1>
+<!-- <div *ngIf="activity=='viewAllMovies'">
+    <div class="row">
+        <div class="container-fluid">
+            <app-view-all-movie></app-view-all-movie>
+        </div>
+    </div>
+</div> -->

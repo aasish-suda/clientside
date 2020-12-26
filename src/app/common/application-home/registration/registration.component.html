@@ -1,0 +1,106 @@
+<div class="page-top-offset"></div>
+<div class="row">
+    <div class="container-fluid">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="home-register-bg">
+
+                <h3 class="title">Register</h3>
+                <form [formGroup]="registerUserForm" (ngSubmit)="registerUser()">
+
+
+                    <div class="form-group">
+                        <label *ngIf="registerUserForm.controls.username.value" for="name">Username</label>
+                        <input class="form-control" formControlName="username" placeholder="Username" id="username" />
+
+                        <div *ngIf="registerUserForm.controls.username.invalid
+                                            && registerUserForm.controls.username.touched">
+
+                            <div *ngIf="registerUserForm.controls.username.hasError('required')">
+                                <strong class="error-message">Username is Mandatory</strong>
+                            </div>
+                            <!-- <div *ngIf="registerUserForm.controls.name.dirty && registerUserForm.controls.name.hasError('namePatternError')">
+                                <strong class="error-message">Name pattern is invalid</strong>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label *ngIf="registerUserForm.controls.email.value" for="email">email Id</label>
+                        <input class="form-control" formControlName="email" placeholder="email" id="email" />
+
+                        <div *ngIf="registerUserForm.controls.email.invalid
+                                            && registerUserForm.controls.email.touched">
+
+                            <div *ngIf="registerUserForm.controls.email.hasError('required')">
+                                <strong class="error-message">emailid is Mandatory</strong>
+                            </div>
+                            <!-- <div *ngIf="registerUserForm.controls.name.dirty && registerUserForm.controls.name.hasError('namePatternError')">
+                                <strong class="error-message">Name pattern is invalid</strong>
+                            </div> -->
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label *ngIf="registerUserForm.controls.phone.value" for="phone">Phone Number</label>
+                        <input class="form-control" formControlName="phone" placeholder="Phone Number" id="phone" />
+                        <div *ngIf="registerUserForm.controls.phone.invalid
+                        && registerUserForm.controls.phone.touched">
+
+                            <div *ngIf="registerUserForm.controls.phone.hasError('required')">
+                                <strong class="error-message">Phone Number is Mandatory</strong>
+                            </div>
+                            <div *ngIf="registerUserForm.controls.phone.dirty && registerUserForm.controls.phone.hasError('phoneNumberError')">
+                                <strong class="error-message">Phone Number pattern is invalid</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label *ngIf="registerUserForm.controls.password.value" for="password">Password</label>
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password" id="password" />
+                        <div *ngIf="registerUserForm.controls.password.invalid
+                        && registerUserForm.controls.password.touched">
+
+                            <div *ngIf="registerUserForm.controls.password.hasError('required')">
+                                <strong class="error-message">Password is Mandatory</strong>
+                            </div>
+                            <!-- <div *ngIf="registerUserForm.controls.password.dirty && registerUserForm.controls.password.hasError('passwordPatternError')">
+                                <strong class="error-message">Password pattern is invalid</strong>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label *ngIf="registerUserForm.controls.confirmPassword.value" for="confirmPassword">Confirm Password</label>
+                        <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" id="confirmPassword"
+                        />
+                        <div *ngIf="registerUserForm.controls.confirmPassword.invalid
+                            && registerUserForm.controls.confirmPassword.touched">
+
+                            <div *ngIf="registerUserForm.controls.confirmPassword.hasError('required')">
+                                <strong class="error-message">Please re-enter the password</strong>
+                            </div>
+                            <div *ngIf="registerUserForm.controls.password.value != registerUserForm.controls.confirmPassword.value">
+                                <strong class="error-message">Passwords do not match!!</strong>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <button [disabled]="!registerUserForm.valid" class="col-md-4 col-md-offset-1 btn btn-info">
+                            Register
+                        </button>
+                        <button type="reset" [disabled]="registerUserForm.pristine" class="col-md-4 col-md-offset-2 btn btn-warning">
+                            Reset
+                        </button>
+
+                    </div>
+                </form>
+                <h5 class="success-message">{{successMessage}}</h5>
+                <h5 class="error-message">{{errorMessage}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
